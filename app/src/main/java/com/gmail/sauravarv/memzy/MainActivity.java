@@ -38,7 +38,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity
 {
     ImageView memeImage;
-    Button nextButton, shareButton;
+    Button nextButton;
     ProgressBar progressBar;
 
     @Override
@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         memeImage = (ImageView)findViewById(R.id.memeImage);
         nextButton = (Button)findViewById(R.id.nextButton);
-        shareButton = (Button)findViewById(R.id.shareButton);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         loadMeme();
         nextButton.setOnClickListener(new View.OnClickListener() {
