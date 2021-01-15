@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".about">
+
+    <TextView
+        android:id="@+id/aboutText"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textView1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:textSize="20dp"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:background="@color/black"
+    android:textColor="@color/white"
+    android:text="Memz is a Meme Sharing App.\nThis app is developed by Saurav Kumar.\n \nThis app is build in Java language with the help of Volley and Glide Library.\nThis app shows random memes by making an API call." />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="About"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@color/cardview_dark_background"
+        android:textStyle="bold" />
+</androidx.constraintlayout.widget.ConstraintLayout>
