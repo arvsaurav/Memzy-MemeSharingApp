@@ -27,7 +27,7 @@
         android:layout_height="0dp"
         android:textSize="20dp"
         android:textColor="@color/white"
-        android:text="Developer :  Saurav Kumar\n\nEmail         :  arvsaurav@gmail.com\n\nLinkedIn    : \n\n  https://www.linkedin.com/in/arvsaurav\n\nGithub       :  arvsaurav"
+        android:text="Developer :  Saurav Kumar\n\nEmail         :  Not Available\n\nLinkedIn    : \n\n  https://www.linkedin.com/in/arvsaurav\n\nGithub       :  arvsaurav"
         app:layout_constraintTop_toBottomOf="@id/textView2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

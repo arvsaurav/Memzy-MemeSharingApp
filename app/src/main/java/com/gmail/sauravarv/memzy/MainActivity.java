@@ -9,6 +9,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.service.chooser.ChooserTarget;
+import android.service.chooser.ChooserTargetService;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,8 +40,10 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity
 {
     ImageView memeImage;
-    Button nextButton;
+    Button nextButton, shareButton;
     ProgressBar progressBar;
+    // We have added memeImageUrl because when we will share meme then we have to share this url and we are going to use this url outside loadMeme method.
+    String memeImageUrl = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         memeImage = (ImageView)findViewById(R.id.memeImage);
         nextButton = (Button)findViewById(R.id.nextButton);
+        shareButton = (Button)findViewById(R.id.shareButton);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         loadMeme();
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +62,19 @@ public class MainActivity extends AppCompatActivity
                 loadMeme();
             }
         });
+
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //here we will use implicit intent.
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, "Hey! Check out this meme "+memeImageUrl);
+                Intent shareIntent = Intent.createChooser(i, "Share this meme using...");
+                startActivity(shareIntent);
+            }
+        });
+
     }
 
     private void loadMeme()
@@ -75,8 +93,11 @@ public class MainActivity extends AppCompatActivity
                     {
                         try
                         {
-                            String url = response.getString("url");
-                            Glide.with(MainActivity.this).load(url).listener(new RequestListener<Drawable>() {
+                            //storing memeImage url
+                            memeImageUrl = response.getString("url");
+
+                            //we are adding listner to glide so that we can set the visibility of progress bar.
+                            Glide.with(MainActivity.this).load(memeImageUrl).listener(new RequestListener<Drawable>() {
                                 @Override
                                 public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource)
                                 {
