@@ -80,10 +80,7 @@ public class MainActivity extends AppCompatActivity
     private void loadMeme()
     {
         progressBar.setVisibility(View.VISIBLE);
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
         String url ="https://meme-api.herokuapp.com/gimme";
-
         // Request a json object response from the provided URL.
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>()
@@ -136,10 +133,8 @@ public class MainActivity extends AppCompatActivity
                         toast.show();
                     }
                 });
-
-        // Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest);
-
+        // Adding request using singleton pattern
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
 
     @Override
