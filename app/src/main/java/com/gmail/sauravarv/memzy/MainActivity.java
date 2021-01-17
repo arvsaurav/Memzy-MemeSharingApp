@@ -134,7 +134,8 @@ public class MainActivity extends AppCompatActivity
                     }
                 });
         // Adding request using singleton pattern
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+        //Using Companion as MySingletonK is a kotlin class file.
+        MySingletonK.Companion.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
 
     @Override
