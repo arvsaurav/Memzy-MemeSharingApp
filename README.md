@@ -1,5 +1,5 @@
 # Memzy - A Meme Sharing App
-Memzy is a JAVA based meme sharing android application which brings memes from reddit and shows it inside the application.
+Memzy is a JAVA based Android Application for sharing memes. It brings memes from reddit by making an API call and shows it inside the app. Displayed memes can be shared over any platform.
 ## App Screenshots
 <a href="">
 <img src="https://user-images.githubusercontent.com/43547408/107189255-1556dd00-6a0f-11eb-9187-a9efb2150a73.png"
